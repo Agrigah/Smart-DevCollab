@@ -432,36 +432,7 @@ Le projet a été réalisé entre le **26 mai** et le **5 juin**.
 ---
  
 
- 
-### Aya
- 
-Responsable de :
- 
-- authentification
-- login / register
-- dashboard
-- layout
-- sécurité utilisateur
-### Atiqa
- 
-Responsable de :
- 
-- projets
-- tâches
-- Kanban
-- notifications
-- membres de projet
-### Mustapha
- 
-Responsable de :
- 
-- assistant IA
-- analytics
-- chat d'équipe
-- journaux d'activité
-- intégration Gemini
----
- 
+
 ## Améliorations Futures
  
 - Délais générés par IA

@@ -1,0 +1,7 @@
+package ma.enset.smartdevcollab.service;
+import ma.enset.smartdevcollab.dto.AuthDtos.*; import ma.enset.smartdevcollab.entity.*; import ma.enset.smartdevcollab.repository.UserRepository; import ma.enset.smartdevcollab.security.JwtService; import org.springframework.security.authentication.*; import org.springframework.security.crypto.password.PasswordEncoder; import org.springframework.stereotype.Service;
+@Service
+public class AuthService{ private final UserRepository repo; private final PasswordEncoder encoder; private final AuthenticationManager auth; private final JwtService jwt; public AuthService(UserRepository repo,PasswordEncoder encoder,AuthenticationManager auth,JwtService jwt){this.repo=repo;this.encoder=encoder;this.auth=auth;this.jwt=jwt;}
+ public AuthResponse register(RegisterRequest r){ if(repo.existsByEmail(r.email())) throw new RuntimeException("Email deja utilise"); var u=User.builder().fullName(r.fullName()).email(r.email()).password(encoder.encode(r.password())).role(r.role()==null?Role.STUDENT:r.role()).skillsText(r.skillsText()).build(); repo.save(u); return new AuthResponse(jwt.generate(u.getEmail()),u.getId(),u.getFullName(),u.getEmail(),u.getRole(),u.getSkillsText()); }
+ public AuthResponse login(LoginRequest r){ auth.authenticate(new UsernamePasswordAuthenticationToken(r.email(),r.password())); var u=repo.findByEmail(r.email()).orElseThrow(); return new AuthResponse(jwt.generate(u.getEmail()),u.getId(),u.getFullName(),u.getEmail(),u.getRole(),u.getSkillsText()); }
+}

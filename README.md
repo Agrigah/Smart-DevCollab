@@ -262,37 +262,7 @@ Accédez au dossier backend :
 cd backend
 ```
  
-Créez ou mettez à jour :
- 
-```
-src/main/resources/application.properties
-```
- 
-Exemple de configuration :
- 
-```properties
-spring.application.name=smart-devcollab
-server.port=8080
- 
-spring.datasource.url=jdbc:mysql://localhost:3306/smart_devcollab?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
-spring.datasource.username=root
-spring.datasource.password=
- 
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
- 
-app.jwt.secret=SmartDevCollabSecretKeyForAcademicProjectMustBeLongEnough123456
-app.jwt.expiration=86400000
- 
-spring.servlet.multipart.max-file-size=20MB
-spring.servlet.multipart.max-request-size=20MB
-server.tomcat.max-swallow-size=20MB
- 
-gemini.api.key=VOTRE_CLE_API_GEMINI
-gemini.model=gemini-2.5-flash
-```
- 
+
 Démarrez le backend :
  
 ```bash
@@ -461,16 +431,7 @@ Le projet a été réalisé entre le **26 mai** et le **5 juin**.
 10. Tests, documentation et présentation finale
 ---
  
-## Workflow Git
- 
-Structure de branches recommandée :
- 
-```
-main
-├── aya-auth-dashboard
-├── atiqa-projects-kanban-notifications
-└── mustapha-ai-analytics-chat
-```
+
  
 ### Aya
  
